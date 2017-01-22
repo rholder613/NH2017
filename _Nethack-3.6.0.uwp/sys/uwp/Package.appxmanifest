@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
+  <Identity Name="56403BartletSoftware.Nethack" Publisher="CN=8620C00C-77F1-46FC-8826-0D3AC2901CF6" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="97f9055b-4137-48f2-90b2-a1d5e907fffe" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Nethack</DisplayName>
+    <PublisherDisplayName>Bartlet Software</PublisherDisplayName>
+    <Logo>StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Nethack.App">
+      <uap:VisualElements DisplayName="NetHack" Square150x150Logo="Square150x150Logo.png" Square44x44Logo="Square44x44Logo.png" Description="Nethack is a single player dungeon exploration game using a classical text based graphical interface.  Unlike other dungeon crawlers, the emphasis in NetHack is on discovering the detail of the dungeon and simply not killing everything in sight - in fact, killing everything in sight is a good way to die quickly." BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Wide310x150Logo.png" ShortName="NetHack">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="SplashScreen.png" BackgroundColor="black" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape" />
+        </uap:InitialRotationPreference>
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Build"
+     Inputs="$(BinDir)dlb.exe;@(DlbList)"
+	 Outputs="$(DatDir)dlb.lst;$(DatDir)porthelp;$(DatDir)nhdat">
+	<Copy SourceFiles="$(SysWinntDir)porthelp" DestinationFolder="$(DatDir)"/>
+	<WriteLinesToFile File="$(DatDir)dlb.lst" Lines="@(DlbList->'%(filename)%(extension)')" Overwrite="true"/>
+	<Exec Command="$(BinDir)dlb.exe cIf $(DatDir)dlb.lst $(DatDir)nhdat" WorkingDirectory="$(DatDir)"/>
+  </Target>
+  <Target Name="Clean">
+	<Delete Files="$(DatDir)dlb.lst;$(DatDir)porthelp;$(DatDir)nhdat"/>
+  </Target>
+  <Import Project="defines.proj"/>
+</Project>

@@ -1,0 +1,163 @@
+        Universal Windows Platform specific help file for NetHack 3.6
+		Copyright (c) Bart House 2017
+        NetHack may be freely distributed.  See license for details.
+                   (Last Revision: March 16, 2003)
+
+This file details specifics for NetHack built for the Universal Windows
+Platform (UWP).  We will to this port as the NetHack UWP port.
+
+New players should be sure to read GuideBook.txt which contains 
+essential information about playing NetHack.  It can be saved to a
+folder from the main menu.
+
+The UWP port supports some additional or enhanced commands as well as some 
+defaults.nh file options specific to configuration choices used during the
+building of NetHack. Listed below are those commands and defaults.nh file 
+options. 
+
+Some sections of this file have not yet been updated for the UWP port as noted
+below.
+
+Contents
+1. Main Menu
+2. ALT Key Combinations
+3. Boolean options - Option that you can toggle on or off
+4. Numeric Keypad (for number_pad mode)
+5. Color palette
+
+
+1. Main Menu
+----------------------------------------------
+When the application is launched, you are placed at a main menu which allows
+the player to perform some additional actions before entering the standard
+NetHack game.
+
+Theses are the currently suported actions:
+
+    Play - enters the NetHack game.
+	
+	Change NETHACKOPTIONS - the NetHack UWP port can not support Windows
+	environment variables due to lack of operating system support.  This action
+	allows the player to modify NETHACKOPTIONS as needed.
+
+    Save defaults.nh to file - this will save the game's internal version of
+	defaults.nh to a file the user picks.
+	
+	Load defaults.nh from file - loads a file the user picks replacing the 
+	game's internal version of defaults.nh.
+	
+	Reset defaults.nh - resets the game's internal version of defaults.nh to
+	its original version which was installed with the game.
+
+	Save Guidebook.txt - stores the text file Guidebook.txt to a location the
+	user picks.  It is highly recommended that any new player reads this file.
+	
+
+2. ALT Key Combinations
+----------------------------------------------
+
+While playing you can press the ALT key in combination with another key to
+execute an extended command as an alternative method to pressing a # key
+sequence.
+
+The available commands are:
+
+    Alt-2    #twoweapon      - toggle two-weapon combat (unavailable
+                               if number_pad mode is set)
+    Alt-a    #adjust         - adjust inventory letters.
+    Alt-c    #chat           - talk to someone or something.
+    Alt-d    #dip            - dip an object into something.
+    Alt-e    #enhance        - enhance your skill with a weapon.
+    Alt-f    #force          - force a lock.
+    Alt-i    #invoke         - invoke an object's powers.
+    Alt-j    #jump           - jump to a location.
+    Alt-l    #loot           - loot a box on the floor.
+    Alt-m    #monster        - use a monster's special ability. 
+    Alt-n    #name           - name an item or type of object.
+    Alt-o    #offer          - offer a sacrifice to the gods.
+    Alt-p    #pray           - pray to the gods for help.
+    Alt-q    #quit           - quit the game. (Same as #quit)
+    Alt-r    #rub            - rub a lamp.
+    Alt-s    #sit            - sit down.
+    Alt-t    #turn           - turn undead.
+    Alt-u    #untrap         - untrap something.
+    Alt-v    #version        - list compile time options for this version of
+                               NetHack.
+    Alt-w    #wipe           - wipe off your face.
+    Alt-/    #?              - display list of extended menu commands
+
+3. Boolean Options (Options that can be toggled on or off)
+----------------------------------------------------------
+
+Listed here are any options not discussed in the main help, options 
+which may be slightly different from the main help file, and options 
+which may need a slightly more explanatory note: 
+
+    color          Use color when displaying map. Default: [TRUE]
+
+    hilite_pet     Your pet is hilited. Default: [TRUE]
+
+    symset         Symbols to use to represent map. 
+                   Default: [IBMGraphics_2]
+ 
+    msg_window     When ^P is pressed, it shows menu in a full window.
+                   Default: [s] 
+
+    toptenwin      Write top ten list to a window, as opposed to stdout.
+                   Default in tty interface: [TRUE]
+				   
+
+4. Numeric Keypad (for "OPTION=number_pad" mode)
+------------------------------------------------
+
+
+The numeric keypad and surrounding characters act as macros for different
+commands in NetHack.  The Num Lock should be toggled to "on" to make the
+most of these keys:
+
+          Key         Normal       Shift-Key
+       ----------   ----------    -------------
+       1, 2, 3, 4   Move In       Run In
+       6, 7, 8, 9   Direction     Direction
+
+        0 (Ins)     Inventory     Categorized
+                                  Inventory
+
+        . (Del)     Wait Turn     : - Look Here
+
+        +           Spell List    P - Put on an
+                                  accessory
+
+        -           m - Move      Previous
+                    Only          Message
+
+
+      When you use the Ctrl key with a directional key (1, 2, 3, 4, 6, 7, 8, 9)
+	  it means "go in specified direction until you hit a wall or run into
+	  something interesting."
+	  
+5. Color Palette
+------------------------------------------------
+The color palette can be set in either the defaults.nh file or by setting
+NETHACKOPTIONS.  The format of the options is:
+  palette:<color-name>-red-green-blue
+  
+Here for example is how to set the entire palette.
+
+OPTIONS=palette:black-0-0-0
+OPTIONS=palette:red-210-0-0
+OPTIONS=palette:green-80-200-0
+OPTIONS=palette:brown-180-100-0
+OPTIONS=palette:blue-0-0-200
+OPTIONS=palette:magenta-128-0-128
+OPTIONS=palette:cyan-50-180-180
+OPTIONS=palette:gray-192-192-192
+OPTIONS=palette:dark gray-100-100-100
+OPTIONS=palette:orange-255-128-0
+OPTIONS=palette:bright green-0-255-0
+OPTIONS=palette:yellow-255-255-0
+OPTIONS=palette:bright blue-100-100-240
+OPTIONS=palette:bright magenta-255-0-255
+OPTIONS=palette:bright cyan-0-255-255
+OPTIONS=palette:white-255-255-255
+

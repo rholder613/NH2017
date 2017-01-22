@@ -1,0 +1,33 @@
+12/31/2016
+
+High Priority
+
+Medium Priority
+- Review all options
+- Protoype just calling into DWrite to render grid instead of trying to use D3D11 (although we
+  we still need a means to render tiles eventually)
+- Review all code looking for more static locals.  This can be a problem since we can't re-initialize.
+- number_pad option value is not preserved across saves -- is this documented?  Is this how it is
+  supposed to be?  What options are saved with game?
+- Review all options and note which are supported and not supported.
+- Need to create seperate projects for makedefs for compiling the different options.
+- Polish windows store description.
+- Polish GIT hub wiki pages.
+- Clean up UWP file naming and placement.
+- Place TextGrid positioned at top of window.
+
+Low Priority
+- Add ability to load/store/restore symbols
+- see if we can remove WIN32CON definition (currently defined in vcxproj )
+- persist options which are set (low priority since NETHACKOPTIONS environment variable can be used)
+- add arm and arm64 support
+- Add more advanced gesturing support.
+- Consider supporting tiles.
+- Consider providing a more advanced windowing support
+- Distinguish between development builds and official application package builds and set the build
+  version of development builds to zero
+
+Official NetHack Pull Request Work
+- Update various distribution documentation to describe UWP port.
+- Conform to coding standards.
+- Determine if copyright notices are correct.

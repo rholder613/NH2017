@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="Build" 
+	Inputs="$(SysWinntDir)defaults.nh;$(DocDir)Guidebook.txt;$(DatDir)license;$(SysWinntDir)sysconf;$(DatDir)symbols;$(DatDir)opthelp;$(ToolsBinDir)dlb.exe;@(DlbList);$(SysWinntDir)porthelp"
+	Outputs="$(NetHackBinDir)defaults.nh;$(NetHackBinDir)Guidebook.txt;$(NetHackBinDir)license;$(NetHackBinDir)sysconf;$(NetHackBinDir)symbols;$(NetHackBinDir)opthelp;$(NetHackBinDir)nhdat">
+
+    <!-- Populate Bin -->
+	<!-- TODO Most of these should be specified as "include in build" in the project itself -->
+	<Copy SourceFiles="$(SysWinntDir)defaults.nh;$(DocDir)Guidebook.txt;$(DatDir)license;$(SysWinntDir)sysconf;$(DatDir)symbols;$(DatDir)opthelp" DestinationFolder="$(NetHackBinDir)"/>
+
+    <!-- Build nhdat -->
+	<Copy SourceFiles="$(SysWinntDir)porthelp" DestinationFolder="$(DatDir)"/>
+	<WriteLinesToFile File="$(DatDir)dlb.lst" Lines="@(DlbList->'%(filename)%(extension)')" Overwrite="true"/>
+	<Exec Command="$(ToolsBinDir)dlb.exe cIf $(DatDir)dlb.lst $(NetHackBinDir)nhdat" WorkingDirectory="$(DatDir)"/>
+	<Delete Files="$(DatDir)porthelp"/>
+
+	</Target>
+  <Target Name="Clean">
+	<Delete Files="$(NetHackBinDir)defaults.nh;$(NetHackBinDir)Guidebook.txt;$(NetHackBinDir)license;$(NetHackBinDir)sysconf;$(NetHackBinDir)symbols;$(NetHackBinDir)opthelp"/>
+  </Target>
+  <Import Project="defines.proj"/>
+</Project>

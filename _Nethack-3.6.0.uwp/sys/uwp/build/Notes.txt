@@ -1,0 +1,30 @@
+Notes
+
+- We can't get user name without adding the capability to application.  It seems intrusive to require
+  the user to give the application access to his/her user name.  We will allow the user to enter his/her
+  name at launch and we will not leverage the network user name capabilities of Nethack.
+
+- We do not currently support user sounds.
+
+- SYSCF is not supported (no need to have additional administrator configuration settings)
+
+- mouse is supported including right click support
+
+- Environment variables can not be used in 64bit store apps.  We will
+  need to allow user to specify persistent options some other way.
+
+- keypad is supported.
+
+- had to disable optimizations due to compiler bug.  causing a crash in the options code.
+
+- had to check that num lock was not active when enquing a key down event for keypad.  If num pad is active
+  then a character will be generated alonw with the key down event causing two events to be queued for every
+  key stroke.
+
+- marked the application as high dpi aware
+
+- found a problem with key bindings due to the static local backed_dir_cmd in reset_commands() when playing
+  game for second time the flag is not in the right state since it retains the setting from the previous
+  game.  The simple fix to this problem is to set the flag again when initial is true.  The problem is that
+  this type of problem can be throughtout the code.  Probably can only find these types of problems by
+  code inspection.

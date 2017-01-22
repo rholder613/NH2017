@@ -1,0 +1,7 @@
+!build/
+!*.sln
+*.vcxproj.user
+*.opendb
+*.db
+nhdat
+license.txt
